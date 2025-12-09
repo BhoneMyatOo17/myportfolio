@@ -132,7 +132,7 @@
         .mobile-menu {
             background: linear-gradient(135deg, #2563eb, #3b82f6);
             border-radius: 1rem;
-            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.6);
+            box-shadow: 0 10px 30px rgba(181, 181, 181, 0.6);
             backdrop-filter: blur(10px);
             border: 2px solid rgba(255, 255, 255, 0.3);
         }
@@ -145,7 +145,6 @@
         
         .mobile-menu a:hover {
             background: rgba(255, 255, 255, 0.3);
-            transform: translateX(5px);
         }
 
         .dot {
@@ -198,14 +197,14 @@
                 <a href="#contact" class="text-blue-600 hover:text-blue-800 transition-colors font-medium">Contact</a>
             </div>
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-white">
+            <button id="mobile-menu-btn" class="md:hidden text-slate-900">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
             </button>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden mt-4 mb-4 mobile-menu mx-4">
+        <div id="mobile-menu" class="hidden md:hidden mt-4 mb-4 mobile-menu mx-10 text-center">
             <div class="flex flex-col space-y-2 p-4">
                 <a href="#hero" class="text-white hover:bg-white/20 transition-colors font-medium rounded-lg px-4 py-3">Home</a>
                 <a href="#about" class="text-white hover:bg-white/20 transition-colors font-medium rounded-lg px-4 py-3">About</a>
@@ -252,7 +251,7 @@
                     <a href="#projects" class="bg-gradient-to-l from-violet-500 to-indigo-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg">
                         View My Work
                     </a>
-                    <a href="#contact" class="border-2 border-slate-700 hover:bg-slate-700 hover:text-white text-slate-700 px-8 py-3 rounded-lg font-semibold transition-colors">
+                    <a href="#contact" class="border-2 bg-white border-slate-500 hover:bg-slate-500 hover:text-white text-slate-700 px-8 py-3 rounded-lg font-semibold transition-colors">
                         Contact Me
                     </a>
                 </div>
