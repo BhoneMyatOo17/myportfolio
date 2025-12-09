@@ -38,6 +38,13 @@
             transform: translateY(-10px);
         }
         
+        /* Tech icon image fit */
+        .tech-icon img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
         /* Navbar scroll effect */
         .navbar {
             transition: all 0.3s ease;
@@ -71,6 +78,12 @@
         .slide.active {
             opacity: 1;
             z-index: 1;
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .slide-btn {
@@ -120,12 +133,13 @@
             50% { transform: translateY(-20px) rotate(5deg); }
         }
         
-        /* Mobile menu dropdown */
+        /* Mobile menu dropdown - MORE VISIBLE */
         .mobile-menu {
-            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
             border-radius: 1rem;
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.6);
             backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
         
         .mobile-menu a {
@@ -135,7 +149,7 @@
         }
         
         .mobile-menu a:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.3);
             transform: translateX(5px);
         }
         
@@ -153,6 +167,26 @@
         
         .dot.active, .dot:hover {
             background-color: #3b82f6;
+        }
+        
+        /* Mobile responsive fixes */
+        @media (max-width: 768px) {
+            .project-card .grid {
+                min-height: auto;
+            }
+            
+            .project-card [data-slideshow] {
+                min-height: 250px !important;
+            }
+            
+            .tech-icon > div {
+                padding: 1.5rem !important;
+            }
+            
+            .tech-icon .w-20 {
+                width: 3.5rem !important;
+                height: 3.5rem !important;
+            }
         }
     </style>
 </head>
@@ -178,7 +212,7 @@
             </button>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden mt-4 mobile-menu">
+        <div id="mobile-menu" class="hidden md:hidden mt-4 mb-4 mobile-menu mx-4">
             <div class="flex flex-col space-y-2 p-4">
                 <a href="#hero" class="text-white hover:bg-white/20 transition-colors font-medium rounded-lg px-4 py-3">Home</a>
                 <a href="#about" class="text-white hover:bg-white/20 transition-colors font-medium rounded-lg px-4 py-3">About</a>
@@ -221,7 +255,7 @@
                 <p class="text-lg text-slate-600 mb-12 max-w-2xl mx-auto">
                     I specialize in web-development and mobile development, with in-depth skills in front-end design.
                 </p>
-                <div class="flex justify-center gap-4">
+                <div class="flex justify-center gap-4 flex-wrap">
                     <a href="#projects" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg">
                         View My Work
                     </a>
@@ -245,7 +279,7 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="scroll-fade">
                     <div class="bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg h-96 flex items-center justify-center text-white overflow-hidden">
-                       <img src="/images/me.jpg" alt="Profile Photo">
+                       <img src="images/me.jpg" alt="Profile Photo" class="w-full h-full object-cover">
                     </div>
                 </div>
                 
@@ -274,64 +308,64 @@
                 <p class="text-center text-slate-600 mb-12">Technologies I work with</p>
             </div>
             
-            <div class="grid grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto">
                 <!-- PHP -->
                 <div class="scroll-fade tech-icon">
-                    <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow text-center">
-                        <div class="w-20 h-20 mx-auto mb-4 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <div class="bg-white rounded-xl p-4 md:p-8 shadow-lg hover:shadow-xl transition-shadow text-center">
+                        <div class="w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 bg-blue-100 rounded-lg flex items-center justify-center p-3">
                             <img src="svg/php.svg" alt="PHP">
                         </div>
-                        <h3 class="font-semibold text-lg text-slate-900">PHP</h3>
+                        <h3 class="font-semibold text-base md:text-lg text-slate-900">PHP</h3>
                     </div>
                 </div>
                 
                 <!-- Laravel -->
                 <div class="scroll-fade tech-icon">
-                    <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow text-center">
-                        <div class="w-20 p-3 h-20 mx-auto mb-4 bg-red-100 rounded-lg flex items-center justify-center">
+                    <div class="bg-white rounded-xl p-4 md:p-8 shadow-lg hover:shadow-xl transition-shadow text-center">
+                        <div class="w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 bg-red-100 rounded-lg flex items-center justify-center p-3">
                             <img src="svg/laravel.svg" alt="Laravel">
                         </div>
-                        <h3 class="font-semibold text-lg text-slate-900">Laravel</h3>
+                        <h3 class="font-semibold text-base md:text-lg text-slate-900">Laravel</h3>
                     </div>
                 </div>
                 
                 <!-- JavaScript -->
                 <div class="scroll-fade tech-icon">
-                    <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow text-center">
-                        <div class="w-20 h-20 p-1 mx-auto mb-4 bg-yellow-100 rounded-lg flex items-center justify-center">
+                    <div class="bg-white rounded-xl p-4 md:p-8 shadow-lg hover:shadow-xl transition-shadow text-center">
+                        <div class="w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 bg-yellow-100 rounded-lg flex items-center justify-center p-3">
                             <img src="svg/js.svg" alt="JavaScript">
                         </div>
-                        <h3 class="font-semibold text-lg text-slate-900">JavaScript</h3>
+                        <h3 class="font-semibold text-base md:text-lg text-slate-900">JavaScript</h3>
                     </div>
                 </div>
                 
                 <!-- Kotlin -->
                 <div class="scroll-fade tech-icon">
-                    <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow text-center">
-                        <div class="w-20 p-3 h-20 mx-auto mb-4 bg-purple-100 rounded-lg flex items-center justify-center">
+                    <div class="bg-white rounded-xl p-4 md:p-8 shadow-lg hover:shadow-xl transition-shadow text-center">
+                        <div class="w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 bg-purple-100 rounded-lg flex items-center justify-center p-3">
                             <img src="svg/kotlin.svg" alt="Kotlin">
                         </div>
-                        <h3 class="font-semibold text-lg text-slate-900">Kotlin</h3>
+                        <h3 class="font-semibold text-base md:text-lg text-slate-900">Kotlin</h3>
                     </div>
                 </div>
                 
                 <!-- React Native -->
                 <div class="scroll-fade tech-icon">
-                    <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow text-center">
-                        <div class="w-20 h-20 p-1 mx-auto mb-4 bg-cyan-100 rounded-lg flex items-center justify-center">
+                    <div class="bg-white rounded-xl p-4 md:p-8 shadow-lg hover:shadow-xl transition-shadow text-center">
+                        <div class="w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 bg-cyan-100 rounded-lg flex items-center justify-center p-3">
                              <img src="svg/react.svg" alt="React Native">
                         </div>
-                        <h3 class="font-semibold text-lg text-slate-900">React Native</h3>
+                        <h3 class="font-semibold text-base md:text-lg text-slate-900">React Native</h3>
                     </div>
                 </div>
                 
                 <!-- C# -->
                 <div class="scroll-fade tech-icon">
-                    <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow text-center">
-                        <div class="w-20 h-20 p-2 mx-auto mb-4 bg-purple-100 rounded-lg flex items-center justify-center">
+                    <div class="bg-white rounded-xl p-4 md:p-8 shadow-lg hover:shadow-xl transition-shadow text-center">
+                        <div class="w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 bg-purple-100 rounded-lg flex items-center justify-center p-3">
                             <img src="svg/c_sharp.svg" alt="C#">
                         </div>
-                        <h3 class="font-semibold text-lg text-slate-900">C#</h3>
+                        <h3 class="font-semibold text-base md:text-lg text-slate-900">C#</h3>
                     </div>
                 </div>
             </div>
@@ -348,10 +382,10 @@
             </div>
             
             <!-- Project 1 -->
-            <div class="scroll-fade project-card bg-slate-50 rounded-2xl overflow-hidden shadow-lg mb-12">
+            <div class="scroll-fade project-card bg-white rounded-2xl overflow-hidden shadow-lg mb-12">
                 <div class="grid md:grid-cols-2">
-                    <div class="p-8 flex flex-col justify-center">
-                        <h3 class="text-3xl font-bold mb-4 text-slate-900">SafeSurf</h3>
+                    <div class="p-6 md:p-8 flex flex-col justify-center">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-slate-900">SafeSurf</h3>
                         <p class="text-blue-600 font-semibold mb-4">Language: PHP & JavaScript</p>
                         <p class="text-slate-600 leading-relaxed mb-6">
                            Social Media Campaign website for teenagers regarding online safety measures.
@@ -365,15 +399,15 @@
                             </a>
                         </div>
                     </div>
-                    <div class="relative bg-slate-200 min-h-[200px]" data-slideshow="1">
-                        <div class="slide active absolute inset-0 flex items-center justify-center text-slate-400">
-                            <img src="/images/p11.png" alt="SafeSurf Screenshot 1">
+                    <div class="relative bg-slate-200 h-64 md:min-h-[300px]" data-slideshow="1">
+                        <div class="slide active absolute inset-0 flex items-center justify-center">
+                            <img src="images/p11.png" alt="SafeSurf Screenshot 1">
                         </div>
-                        <div class="slide absolute inset-0 flex items-center justify-center text-slate-400">
-                           <img src="/images/p12.png" alt="SafeSurf Screenshot 2">
+                        <div class="slide absolute inset-0 flex items-center justify-center">
+                           <img src="images/p12.png" alt="SafeSurf Screenshot 2">
                         </div>
-                        <div class="slide absolute inset-0 flex items-center justify-center text-slate-400">
-                            <img src="/images/p13.png" alt="SafeSurf Screenshot 3">
+                        <div class="slide absolute inset-0 flex items-center justify-center">
+                            <img src="images/p13.png" alt="SafeSurf Screenshot 3">
                         </div>
                         
                         <button class="slide-btn absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/70 hover:bg-blue-600 text-slate-800 hover:text-white rounded-full p-2 z-10" onclick="changeSlide(-1, 1)">
@@ -397,17 +431,17 @@
             </div>
             
             <!-- Project 2 -->
-            <div class="scroll-fade project-card bg-slate-50 rounded-2xl overflow-hidden shadow-lg mb-12">
+            <div class="scroll-fade project-card bg-white rounded-2xl overflow-hidden shadow-lg mb-12">
                 <div class="grid md:grid-cols-2">
-                    <div class="order-2 md:order-1 relative bg-slate-200 min-h-[250px]" data-slideshow="2">
-                        <div class="slide active absolute inset-0 flex items-center justify-center text-slate-400">
-                            <img src="/images/p21.png" alt="Urban Brew Screenshot 1">
+                    <div class="order-2 md:order-1 relative bg-slate-200 h-64 md:min-h-[300px]" data-slideshow="2">
+                        <div class="slide active absolute inset-0 flex items-center justify-center">
+                            <img src="images/p21.png" alt="Urban Brew Screenshot 1">
                         </div>
-                        <div class="slide absolute inset-0 flex items-center justify-center text-slate-400">
-                            <img src="/images/p22.png" alt="Urban Brew Screenshot 2">
+                        <div class="slide absolute inset-0 flex items-center justify-center">
+                            <img src="images/p22.png" alt="Urban Brew Screenshot 2">
                         </div>
-                        <div class="slide absolute inset-0 flex items-center justify-center text-slate-400">
-                            <img src="/images/p23.png" alt="Urban Brew Screenshot 3">
+                        <div class="slide absolute inset-0 flex items-center justify-center">
+                            <img src="images/p23.png" alt="Urban Brew Screenshot 3">
                         </div>
                         
                         <button class="slide-btn absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/70 hover:bg-blue-600 text-slate-800 hover:text-white rounded-full p-2 z-10" onclick="changeSlide(-1, 2)">
@@ -427,8 +461,8 @@
                             <span class="dot" onclick="currentSlide(3, 2)"></span>
                         </div>
                     </div>
-                    <div class="order-1 md:order-2 p-8 flex flex-col justify-center">
-                        <h3 class="text-3xl font-bold mb-4 text-slate-900">The Urban Brew Café</h3>
+                    <div class="order-1 md:order-2 p-6 md:p-8 flex flex-col justify-center">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-slate-900">The Urban Brew Café</h3>
                         <p class="text-blue-600 font-semibold mb-4">Language: PHP & JavaScript</p>
                         <p class="text-slate-600 leading-relaxed mb-6">
                           POS Ordering and Booking Management web application for Level 5 Diploma Project.
@@ -446,10 +480,10 @@
             </div>
             
             <!-- Project 3 -->
-            <div class="scroll-fade project-card bg-slate-50 rounded-2xl overflow-hidden shadow-lg mb-12">
+            <div class="scroll-fade project-card bg-white rounded-2xl overflow-hidden shadow-lg mb-12">
                 <div class="grid md:grid-cols-2">
-                    <div class="p-8 flex flex-col justify-center">
-                        <h3 class="text-3xl font-bold mb-4 text-slate-900">Explorer Prototype</h3>
+                    <div class="p-6 md:p-8 flex flex-col justify-center">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-slate-900">Explorer Prototype</h3>
                         <p class="text-blue-600 font-semibold mb-4">Prototype Application</p>
                         <p class="text-slate-600 leading-relaxed mb-6">
                             Children Nature Exploration app prototype with Axure RP for Interaction Design. 
@@ -463,18 +497,18 @@
                             </a>
                         </div>
                     </div>
-                    <div class="relative bg-slate-200 min-h-[400px]" data-slideshow="3">
-                        <div class="slide active absolute inset-0 flex items-center justify-center text-slate-400">
-                             <img src="/images/p31.png" alt="Explorer Screenshot 1">
+                    <div class="relative bg-slate-200 h-64 md:min-h-[400px]" data-slideshow="3">
+                        <div class="slide active absolute inset-0 flex items-center justify-center">
+                             <img src="images/p31.png" alt="Explorer Screenshot 1">
                         </div>
-                        <div class="slide absolute inset-0 flex items-center justify-center text-slate-400">
-                             <img src="/images/p32.png" alt="Explorer Screenshot 2">
+                        <div class="slide absolute inset-0 flex items-center justify-center">
+                             <img src="images/p32.png" alt="Explorer Screenshot 2">
                         </div>
-                        <div class="slide absolute inset-0 flex items-center justify-center text-slate-400">
-                             <img src="/images/p33.png" alt="Explorer Screenshot 3">
+                        <div class="slide absolute inset-0 flex items-center justify-center">
+                             <img src="images/p33.png" alt="Explorer Screenshot 3">
                         </div>
-                        <div class="slide absolute inset-0 flex items-center justify-center text-slate-400">
-                             <img src="/images/p34.png" alt="Explorer Screenshot 4">
+                        <div class="slide absolute inset-0 flex items-center justify-center">
+                             <img src="images/p34.png" alt="Explorer Screenshot 4">
                         </div>
                         
                         <button class="slide-btn absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/70 hover:bg-blue-600 text-slate-800 hover:text-white rounded-full p-2 z-10" onclick="changeSlide(-1, 3)">
@@ -499,17 +533,17 @@
             </div>
             
             <!-- Project 4 -->
-            <div class="scroll-fade project-card bg-slate-50 rounded-2xl overflow-hidden shadow-lg mb-12">
+            <div class="scroll-fade project-card bg-white rounded-2xl overflow-hidden shadow-lg mb-12">
                 <div class="grid md:grid-cols-2">
-                    <div class="order-2 md:order-1 relative bg-slate-200 min-h-[250px]" data-slideshow="4">
-                        <div class="slide active absolute inset-0 flex items-center justify-center text-slate-400">
-                            <img src="/images/p41.png" alt="IdeoBravo Screenshot 1">
+                    <div class="order-2 md:order-1 relative bg-slate-200 h-64 md:min-h-[300px]" data-slideshow="4">
+                        <div class="slide active absolute inset-0 flex items-center justify-center">
+                            <img src="images/p41.png" alt="IdeoBravo Screenshot 1">
                         </div>
-                        <div class="slide absolute inset-0 flex items-center justify-center text-slate-400">
-                            <img src="/images/p42.png" alt="IdeoBravo Screenshot 2">
+                        <div class="slide absolute inset-0 flex items-center justify-center">
+                            <img src="images/p42.png" alt="IdeoBravo Screenshot 2">
                         </div>
-                        <div class="slide absolute inset-0 flex items-center justify-center text-slate-400">
-                            <img src="/images/p43.png" alt="IdeoBravo Screenshot 3">
+                        <div class="slide absolute inset-0 flex items-center justify-center">
+                            <img src="images/p43.png" alt="IdeoBravo Screenshot 3">
                         </div>
                         
                         <button class="slide-btn absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/70 hover:bg-blue-600 text-slate-800 hover:text-white rounded-full p-2 z-10" onclick="changeSlide(-1, 4)">
@@ -529,8 +563,8 @@
                             <span class="dot" onclick="currentSlide(3, 4)"></span>
                         </div>
                     </div>
-                    <div class="order-1 md:order-2 p-8 flex flex-col justify-center">
-                        <h3 class="text-3xl font-bold mb-4 text-slate-900">IdeoBravo</h3>
+                    <div class="order-1 md:order-2 p-6 md:p-8 flex flex-col justify-center">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-slate-900">IdeoBravo</h3>
                         <p class="text-blue-600 font-semibold mb-4">Framework: Laravel</p>
                         <p class="text-slate-600 leading-relaxed mb-6">
                           Ongoing project for integrated Condominium Management service platform.
@@ -549,14 +583,14 @@
             </div>
             
             <!-- Project 5 - Mobile Oriented -->
-            <div class="scroll-fade project-card bg-slate-50 rounded-2xl overflow-hidden shadow-lg mb-12">
+            <div class="scroll-fade project-card bg-white rounded-2xl overflow-hidden shadow-lg mb-12">
                 <div class="grid md:grid-cols-[1fr,350px] gap-8 items-center">
-                    <div class="p-8 flex flex-col justify-center">
+                    <div class="p-6 md:p-8 flex flex-col justify-center">
                         <div class="flex items-center gap-3 mb-4">
                             <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
                             </svg>
-                            <h3 class="text-3xl font-bold text-slate-900">M-Hike</h3>
+                            <h3 class="text-2xl md:text-3xl font-bold text-slate-900">M-Hike</h3>
                         </div>
                         <p class="text-blue-600 font-semibold mb-4">Language: Kotlin / React Native</p>
                         <p class="text-slate-600 leading-relaxed mb-4">
@@ -580,15 +614,15 @@
                             </a>
                         </div>
                     </div>
-                    <div class="relative bg-slate-200 h-[500px] w-full max-w-[350px] mx-auto rounded-3xl overflow-hidden shadow-2xl" data-slideshow="5">
-                        <div class="slide active absolute inset-0 flex items-center justify-center text-slate-400">
-                            <img src="/images/p61.png" alt="M-Hike Screenshot 1">
+                    <div class="relative bg-slate-200 h-96 md:h-[500px] w-full max-w-[350px] mx-auto rounded-3xl overflow-hidden shadow-2xl" data-slideshow="5">
+                        <div class="slide active absolute inset-0 flex items-center justify-center">
+                            <img src="images/p61.png" alt="M-Hike Screenshot 1">
                         </div>
-                        <div class="slide absolute inset-0 flex items-center justify-center text-slate-400">
-                            <img src="/images/p62.png" alt="M-Hike Screenshot 2">
+                        <div class="slide absolute inset-0 flex items-center justify-center">
+                            <img src="images/p62.png" alt="M-Hike Screenshot 2">
                         </div>
-                        <div class="slide absolute inset-0 flex items-center justify-center text-slate-400">
-                           <img src="/images/p63.png" alt="M-Hike Screenshot 3">
+                        <div class="slide absolute inset-0 flex items-center justify-center">
+                           <img src="images/p63.png" alt="M-Hike Screenshot 3">
                         </div>
                         
                         <button class="slide-btn absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/70 hover:bg-blue-600 text-slate-800 hover:text-white rounded-full p-2 z-10" onclick="changeSlide(-1, 5)">
@@ -612,17 +646,17 @@
             </div>
 
             <!-- Project 6 -->
-            <div class="scroll-fade project-card bg-slate-50 rounded-2xl overflow-hidden shadow-lg mb-12">
+            <div class="scroll-fade project-card bg-white rounded-2xl overflow-hidden shadow-lg mb-12">
                 <div class="grid md:grid-cols-2">
-                    <div class="order-2 md:order-1 relative bg-slate-200 min-h-[500px]" data-slideshow="6">
-                        <div class="slide active absolute inset-0 flex items-center justify-center text-slate-400">
-                            <img src="/images/p53.png" alt="Fit Fury Screenshot 1">
+                    <div class="order-2 md:order-1 relative bg-slate-200 h-64 md:min-h-[400px]" data-slideshow="6">
+                        <div class="slide active absolute inset-0 flex items-center justify-center">
+                            <img src="images/p53.png" alt="Fit Fury Screenshot 1">
                         </div>
-                        <div class="slide absolute inset-0 flex items-center justify-center text-slate-400">
-                            <img src="/images/p52.png" alt="Fit Fury Screenshot 2">
+                        <div class="slide absolute inset-0 flex items-center justify-center">
+                            <img src="images/p52.png" alt="Fit Fury Screenshot 2">
                         </div>
-                        <div class="slide absolute inset-0 flex items-center justify-center text-slate-400">
-                            <img src="/images/p51.png" alt="Fit Fury Screenshot 3">
+                        <div class="slide absolute inset-0 flex items-center justify-center">
+                            <img src="images/p51.png" alt="Fit Fury Screenshot 3">
                         </div>
                         
                         <button class="slide-btn absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/70 hover:bg-blue-600 text-slate-800 hover:text-white rounded-full p-2 z-10" onclick="changeSlide(-1, 6)">
@@ -642,8 +676,8 @@
                             <span class="dot" onclick="currentSlide(3, 6)"></span>
                         </div>
                     </div>
-                    <div class="order-1 md:order-2 p-8 flex flex-col justify-center">
-                        <h3 class="text-3xl font-bold mb-4 text-slate-900">Fit Fury</h3>
+                    <div class="order-1 md:order-2 p-6 md:p-8 flex flex-col justify-center">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4 text-slate-900">Fit Fury</h3>
                         <p class="text-blue-600 font-semibold mb-4">Language: C#</p>
                         <p class="text-slate-600 leading-relaxed mb-6">
                             Window-based form applications for fitness tracking app. 
@@ -681,7 +715,7 @@
             
             <div class="scroll-fade">
                 <p class="text-slate-300 text-lg mb-8">Follow me on social media</p>
-                <div class="flex justify-center gap-6 mb-12">
+                <div class="flex justify-center gap-6 mb-12 flex-wrap">
                     <!-- Facebook -->
                     <a href="https://www.facebook.com/share/16dxn4v7jA/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" 
                        class="text-slate-300 hover:text-blue-400 transition-colors duration-300 transform hover:scale-110">
@@ -843,5 +877,4 @@
         });
     </script>
 </body>
-
 </html>
